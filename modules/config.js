@@ -25,7 +25,7 @@ export function expandReplacements(replacementsOrModulePath) {
   let replacements = JSON.parse(
     // Shell out before requiring the config module. Otherwise, you end up with a chicken-and-egg
     // where babel is not yet fully initialized and the config module silently comes back empty
-    childProcess.execSync(`node -e "console.log(JSON.stringify(require('${fullModulePath}')))"`, {
+    childProcess.execSync('node -e "console.log(JSON.stringify(require(' + fullModulePath + ')))"', {
       encoding: 'utf-8',
     })
   );
